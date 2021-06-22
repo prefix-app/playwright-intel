@@ -1,5 +1,5 @@
 {
-  "name": "playwright-internal",
+  "name": "playwright-intel",
   "private": true,
   "version": "1.13.0-next",
   "description": "A high-level API to automate web browsers",
