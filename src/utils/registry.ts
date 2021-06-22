@@ -180,12 +180,15 @@ export const hostPlatform = ((): BrowserPlatform => {
       stdio: ['ignore', 'pipe', 'ignore']
     }).toString('utf8').trim().split('.').map(x => parseInt(x, 10));
     let arm64 = false;
+    
+    // Disable detection for fetching ARM chromium binaries
     // BigSur is the first version that might run on Apple Silicon.
-    if (major >= 11) {
-      arm64 = execSync('/usr/sbin/sysctl -in hw.optional.arm64', {
-        stdio: ['ignore', 'pipe', 'ignore']
-      }).toString().trim() === '1';
-    }
+    // if (major >= 11) {
+    //   arm64 = execSync('/usr/sbin/sysctl -in hw.optional.arm64', {
+    //     stdio: ['ignore', 'pipe', 'ignore']
+    //   }).toString().trim() === '1';
+    // }
+    
     const LAST_STABLE_MAC_MAJOR_VERSION = 11;
     // All new MacOS releases increase major version.
     let macVersion = `${major}`;
